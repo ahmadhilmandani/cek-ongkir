@@ -9,6 +9,21 @@
       "id": "2",
       "email": "userTwo@test.com",
       "password": "Admin#456"
+    },
+    {
+      "id": "ec56",
+      "email": "sate@ayam.com",
+      "password": "123"
+    },
+    {
+      "id": "baff",
+      "email": "pada@hari.com",
+      "password": "123"
+    },
+    {
+      "id": "af4e",
+      "email": "1",
+      "password": "1"
     }
   ]
 }

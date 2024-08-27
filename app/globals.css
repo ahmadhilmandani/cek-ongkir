@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :not(h1, h2, h3, h4, h5, h6) {
+    @apply text-[15px] sm:max-xl:text-[24px] text-neutral-800;
+  }
+
+  h1,h2,h3,h4,h5,h6{
+    @apply text-sky-500;
+  }
+
+  h1 {
+    @apply text-[32px] xl:text-[24px] sm:max-xl:text-[72px] font-bold;
+  }
+
+  h2 {
+    @apply text-[24px] xl:text-[20px] sm:max-xl:text-[60px] font-bold;
+  }
+
+  h3 {
+    @apply text-[20px] xl:text-[16px] sm:max-xl:text-[48px] font-bold;
+  }
+
+  label{
+    @apply block text-neutral-500 mb-2 text-sm;
+  }
+
+  input{
+    @apply block w-full rounded-md py-1.5 px-3 border border-gray-300 placeholder:text-gray-400 focus:border-sky-400 focus:outline-none bg-neutral-50 font-light;
+  }
+
+  button{
+    @apply block w-full py-1.5 px-3 rounded-md;
+  }
+  .btn-primary{
+    @apply flex gap-3 justify-center items-center bg-sky-500 text-white font-semibold hover:bg-sky-600/85 transition-all; 
+  }
+
+  .card{
+    @apply border bg-gradient-to-b from-neutral-200/30 border-neutral-300/80 px-8 py-16 rounded-md;
+  }
+}

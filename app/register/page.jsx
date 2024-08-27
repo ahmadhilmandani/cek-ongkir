@@ -8,10 +8,8 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 
 
-
 export default function Login() {
   const router = useRouter()
-
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -27,28 +25,27 @@ export default function Login() {
     setFormData({ ...formData, password: e.target.value })
   }
 
-  function handleLogin() {
+  function handleRegister() {
     setIsLoading(true)
-    axios.get(`http://localhost:4000/user?email=${formData.email}&_password=${formData.password}`)
-      .then((res) => {
-        console.log(res)
-        localStorage.setItem('email', res.data[0].email)
-        router.push('/')
-      }).catch((err) => {
-        console.log('masuk')
-        console.log(err)
-      }).finally(() => {
-        setIsLoading(false)
-      })
+    axios.post(`http://localhost:4000/user`, {
+      'email': formData.email,
+      'password': formData.password,
+    }).then((res) => {
+      router.push('/login')
+    }).catch((err) => {
+      console.log(err)
+    }).finally(() => {
+      setIsLoading(false)
+    })
   }
 
 
   return (
     <div className="min-h-screen flex justify-center items-center">
       <div className="max-w-[720px] w-full card">
-        <h1 className="text-center mb-2">Login</h1>
+        <h1 className="text-center mb-2">Register</h1>
         <p className="max-w-[400px] w-full mx-auto text-center mb-8">
-          Selamat Datang di <strong><i className="text-sky-500">CEKIR</i></strong> , Tolong Login dulu ya 🙏
+          Untuk menggunakan <strong><i className="text-sky-500">CEKIR</i></strong> , Tolong register dulu ya 🙏
         </p>
         <div className="max-w-[320px] w-full mx-auto">
           <Input
@@ -71,12 +68,12 @@ export default function Login() {
           />
         </div>
         <div className="max-w-[320px] w-full mx-auto mb-8">
-          <FillButton buttonStyle="primary" handleOnClick={handleLogin} isLoading={isLoading}>
-            Login
+          <FillButton buttonStyle="primary" handleOnClick={handleRegister} isLoading={isLoading}>
+            Register
           </FillButton>
         </div>
         <small className="block w-fit mx-auto text-[13px]">
-          Belum punya akun? <Link href={'/register'} className="text-sky-500 text-[13px] hover:font-semibold transition-all">Register di sini!</Link>
+          Sudah punya akun? <Link href={'/login'} className="text-sky-500 text-[13px] hover:font-semibold transition-all">Login di sini!</Link>
         </small>
       </div>
     </div>
