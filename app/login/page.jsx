@@ -29,13 +29,11 @@ export default function Login() {
 
   function handleLogin() {
     setIsLoading(true)
-    axios.get(`http://localhost:4000/user?email=${formData.email}&_password=${formData.password}`)
+    axios.get(`https://my-json-server.typicode.com/ahmadhilmandani/fake-API-Auth/user?email=${formData.email}&_password=${formData.password}`)
       .then((res) => {
-        console.log(res)
         localStorage.setItem('email', res.data[0].email)
         router.push('/')
       }).catch((err) => {
-        console.log('masuk')
         console.log(err)
       }).finally(() => {
         setIsLoading(false)
@@ -54,7 +52,7 @@ export default function Login() {
           <Input
             labelProp={'Email'}
             idProp={'email'}
-            placeholderProp={'example@email.com'}
+            placeholderProp={'email untuk testing: sate@ayam.com'}
             inputType={'email'}
             inputVal={formData.email}
             handleOnInput={handleInputEmail}
@@ -64,7 +62,7 @@ export default function Login() {
           <Input
             labelProp={'Password'}
             idProp={'password'}
-            placeholderProp={'******'}
+            placeholderProp={'password untuk testing: 123'}
             inputType={'password'}
             inputVal={formData.password}
             handleOnInput={handleInputPass}

@@ -53,7 +53,6 @@ export default function Home() {
       }
     ).then((res) => {
       setOngkir(res.data.rajaongkir)
-      console.log(res.data.rajaongkir)
     }).catch((err) => {
       console.log(err)
     }).finally(() => {
@@ -240,7 +239,7 @@ export default function Home() {
                       </div>
                     </> :
                     <>
-                      <small>Untuk mengecek ongkos kirim, tolong isi seluruh data diatas ⬆️ ya!✌️</small>
+                      <small className="block text-center">Isi seluruh data diatas ⬆️ untuk cek ongkir ya!✌️</small>
                     </>
                 }
               </section>

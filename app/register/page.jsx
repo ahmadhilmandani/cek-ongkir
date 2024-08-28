@@ -27,11 +27,12 @@ export default function Login() {
 
   function handleRegister() {
     setIsLoading(true)
-    axios.post(`http://localhost:4000/user`, {
+    axios.post(`https://my-json-server.typicode.com/ahmadhilmandani/fake-API-Auth/user`, {
       'email': formData.email,
       'password': formData.password,
     }).then((res) => {
-      router.push('/login')
+      localStorage.setItem('email', res.data.email)
+      router.push('/')
     }).catch((err) => {
       console.log(err)
     }).finally(() => {
