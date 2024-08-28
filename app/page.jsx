@@ -1,13 +1,15 @@
 'use client'
-
-import Image from "next/image";
 import Input from "./components/Input";
 import Dropdown from "./components/Dropdown";
 import FillButton from "./components/FillButton";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/navigation"
+import { TailSpin } from "react-loader-spinner";
+
 
 export default function Home() {
+  const router = useRouter()
   let [cities, setCities] = useState(null)
   let [isLoading, setIsLoading] = useState(true)
   const [formData, setFormData] = useState({
@@ -61,6 +63,11 @@ export default function Home() {
   }
 
   useEffect(() => {
+    const email = localStorage.getItem('email');
+    if (!email) {
+      router.push('/login');
+    }
+
     axios.get('/api/city',
       {
         headers: {
@@ -82,7 +89,14 @@ export default function Home() {
       {isLoading === true ?
         <>
           <div className="min-h-screen flex justify-center items-center">
-            loading!
+            <TailSpin
+              visible={true}
+              height="48"
+              width="48"
+              color="#3795BD"
+              ariaLabel="tail-spin-loading"
+              radius="0"
+            />
           </div>
         </>
         :
