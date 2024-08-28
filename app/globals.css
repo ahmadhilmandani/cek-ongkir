@@ -41,4 +41,7 @@
   .card{
     @apply border bg-gradient-to-b from-neutral-200/30 border-neutral-300/80 px-8 py-16 rounded-md;
   }
+  th, td, small {
+    @apply text-[13.5px]
+  }
 }

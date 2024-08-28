@@ -42,7 +42,7 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex justify-center items-center">
-      <div className="max-w-[720px] w-full card">
+      <div className="max-w-[640px] w-full card">
         <h1 className="text-center mb-2">Register</h1>
         <p className="max-w-[400px] w-full mx-auto text-center mb-8">
           Untuk menggunakan <strong><i className="text-sky-500">CEKIR</i></strong> , Tolong register dulu ya 🙏
