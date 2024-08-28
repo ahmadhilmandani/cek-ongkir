@@ -1,7 +1,6 @@
 export default function Input({ labelProp, idProp, placeholderProp, inputType, inputVal, handleOnInput }) {
   return (
     <>
-
       <label htmlFor={idProp}>
         {labelProp}
       </label>

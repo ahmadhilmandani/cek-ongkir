@@ -27,7 +27,7 @@
     @apply block text-neutral-500 mb-2 text-sm;
   }
 
-  input{
+  input, select, option{
     @apply block w-full rounded-md py-1.5 px-3 border border-gray-300 placeholder:text-gray-400 focus:border-sky-400 focus:outline-none bg-neutral-50 font-light;
   }
 
